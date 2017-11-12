@@ -1,6 +1,6 @@
 <?php
 
-namespace MCordingley\DecisionTree\Tests\InformationGain;
+namespace MCordingley\DecisionTree\Tests\ImportanceMeasures;
 
 use MCordingley\DecisionTree\ImportanceMeasures\Gain;
 use PHPUnit\Framework\TestCase;

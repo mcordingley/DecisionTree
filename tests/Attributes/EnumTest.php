@@ -1,6 +1,6 @@
 <?php
 
-namespace MCordingley\DecisionTree\Tests\Attribute;
+namespace MCordingley\DecisionTree\Tests\Attributes;
 
 use MCordingley\DecisionTree\Attributes\Enum;
 use MCordingley\DecisionTree\Nodes\Enum as Node;

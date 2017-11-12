@@ -1,6 +1,6 @@
 <?php
 
-namespace MCordingley\DecisionTree\Tests\Tree;
+namespace MCordingley\DecisionTree\Tests\Nodes;
 
 use MCordingley\DecisionTree\Nodes\Enum;
 use PHPUnit\Framework\TestCase;
