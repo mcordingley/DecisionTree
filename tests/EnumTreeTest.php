@@ -2,6 +2,7 @@
 
 namespace MCordingley\DecisionTree\Tests;
 
+use MCordingley\DecisionTree\Attributes\Boolean;
 use MCordingley\DecisionTree\Attributes\Enum;
 use MCordingley\DecisionTree\Builder;
 use MCordingley\DecisionTree\InformationGain\EntropyReduction;
@@ -14,14 +15,14 @@ final class EnumTreeTest extends TestCase
         $builder = new Builder('WillWait', new EntropyReduction);
 
         $builder->addAttributes([
-            new Enum('Alt'),
-            new Enum('Bar'),
-            new Enum('Fri'),
-            new Enum('Hun'),
+            new Boolean('Alt'),
+            new Boolean('Bar'),
+            new Boolean('Fri'),
+            new Boolean('Hun'),
             new Enum('Pat'),
             new Enum('Price'),
-            new Enum('Rain'),
-            new Enum('Res'),
+            new Boolean('Rain'),
+            new Boolean('Res'),
             new Enum('Type'),
             new Enum('Est'),
         ]);
