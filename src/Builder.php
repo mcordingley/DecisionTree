@@ -93,7 +93,11 @@ final class Builder
         $plurality = null;
         $highestCount = -INF;
 
-        foreach (array_count_values(array_column($examples, $this->outcomeAttribute)) as $key => $count) {
+        $values = array_map(function ($value) {
+            return is_bool($value) ? (int) $value : $value;
+        }, array_column($examples, $this->outcomeAttribute));
+
+        foreach (array_count_values($values) as $key => $count) {
             if ($count > $highestCount) {
                 $plurality = $key;
                 $highestCount = $count;

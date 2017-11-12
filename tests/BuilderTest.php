@@ -8,9 +8,9 @@ use MCordingley\DecisionTree\Builder;
 use MCordingley\DecisionTree\ImportanceMeasures\Gain;
 use PHPUnit\Framework\TestCase;
 
-final class EnumTreeTest extends TestCase
+final class BuilderTest extends TestCase
 {
-    public function testEndToEnd()
+    public function testSimpleTree()
     {
         $builder = new Builder('WillWait', new Gain);
 
@@ -44,20 +44,19 @@ final class EnumTreeTest extends TestCase
 
     private function getExamples(): array
     {
-
         $values = [
-            [1, 0, 0, 1, 'Some', '$$$', 0, 1, 'French',     '0-10',     1],
-            [1, 0, 0, 1, 'Full', '$',   0, 0, 'Thai',       '30-60',    0],
-            [0, 1, 0, 0, 'Some', '$',   0, 0, 'Burger',     '0-10',     1],
-            [1, 0, 1, 1, 'Full', '$',   1, 0, 'Thai',       '10-30',    1],
-            [1, 0, 1, 0, 'Full', '$$$', 0, 1, 'French',     '>60',      0],
-            [0, 1, 0, 1, 'Some', '$$',  1, 1, 'Italian',    '0-10',     1],
-            [0, 1, 0, 0, 'None', '$',   1, 0, 'Burger',     '0-10',     0],
-            [0, 0, 0, 1, 'Some', '$$',  1, 1, 'Thai',       '0-10',     1],
-            [0, 1, 1, 0, 'Full', '$',   1, 0, 'Burger',     '>60',      0],
-            [1, 1, 1, 1, 'Full', '$$$', 0, 1, 'Italian',    '10-30',    0],
-            [0, 0, 0, 0, 'None', '$',   0, 0, 'Thai',       '0-10',     0],
-            [1, 1, 1, 1, 'Full', '$',   0, 0, 'Burger',     '30-60',    1],
+            [true, false, false, true, 'Some', '$$$', false, true, 'French', '0-10', true],
+            [true, false, false, true, 'Full', '$', false, false, 'Thai', '30-60', false],
+            [false, true, false, false, 'Some', '$', false, false, 'Burger', '0-10', true],
+            [true, false, true, true, 'Full', '$', true, false, 'Thai', '10-30', true],
+            [true, false, true, false, 'Full', '$$$', false, true, 'French', '>60', false],
+            [false, true, false, true, 'Some', '$$', true, true, 'Italian', '0-10', true],
+            [false, true, false, false, 'None', '$', true, false, 'Burger', '0-10', false],
+            [false, false, false, true, 'Some', '$$', true, true, 'Thai', '0-10', true],
+            [false, true, true, false, 'Full', '$', true, false, 'Burger', '>60', false],
+            [true, true, true, true, 'Full', '$$$', false, true, 'Italian', '10-30', false],
+            [false, false, false, false, 'None', '$', false, false, 'Thai', '0-10', false],
+            [true, true, true, true, 'Full', '$', false, false, 'Burger', '30-60', true],
         ];
 
         return array_map([$this, 'keyExample'], $values);

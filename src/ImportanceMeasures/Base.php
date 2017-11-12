@@ -22,7 +22,11 @@ abstract class Base implements ImportanceMeasure
      */
     final protected function proportions(array $examples, string $outcomeAttribute): array
     {
-        $counts = array_count_values(array_column($examples, $outcomeAttribute));
+        $values = array_map(function ($value) {
+            return is_bool($value) ? (int) $value : $value;
+        }, array_column($examples, $outcomeAttribute));
+
+        $counts = array_count_values($values);
         $total = array_sum($counts);
 
         return array_map(function (int $count) use ($total): float {
