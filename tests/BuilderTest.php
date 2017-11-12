@@ -53,15 +53,15 @@ final class BuilderTest extends TestCase
         $tree = $builder->build($examples);
 
         // Examples that trace expected paths through the tree.
-        static::assertEquals(0, $tree->test($keyExample([1, 0, 0, 1, 'None', '$$$', 0, 1, 'French',   '0-10', 1])));
-        static::assertEquals(1, $tree->test($keyExample([1, 0, 0, 1, 'Some', '$$$', 0, 1, 'French',   '0-10', 1])));
-        static::assertEquals(0, $tree->test($keyExample([1, 0, 0, 0, 'Full', '$$$', 0, 1, 'French',   '0-10', 1])));
-        static::assertEquals(0, $tree->test($keyExample([1, 0, 0, 1, 'Full', '$$$', 0, 1, 'Italian',  '0-10', 1])));
-        static::assertEquals(0, $tree->test($keyExample([1, 0, 0, 1, 'Full', '$$$', 0, 1, 'Thai',     '0-10', 1])));
-        static::assertEquals(1, $tree->test($keyExample([1, 0, 1, 1, 'Full', '$$$', 0, 1, 'Thai',     '0-10', 1])));
-        static::assertEquals(1, $tree->test($keyExample([1, 0, 0, 1, 'Full', '$$$', 0, 1, 'Burger',   '0-10', 1])));
+        static::assertEquals(0, $tree->classify($keyExample([1, 0, 0, 1, 'None', '$$$', 0, 1, 'French',   '0-10', 1])));
+        static::assertEquals(1, $tree->classify($keyExample([1, 0, 0, 1, 'Some', '$$$', 0, 1, 'French',   '0-10', 1])));
+        static::assertEquals(0, $tree->classify($keyExample([1, 0, 0, 0, 'Full', '$$$', 0, 1, 'French',   '0-10', 1])));
+        static::assertEquals(0, $tree->classify($keyExample([1, 0, 0, 1, 'Full', '$$$', 0, 1, 'Italian',  '0-10', 1])));
+        static::assertEquals(0, $tree->classify($keyExample([1, 0, 0, 1, 'Full', '$$$', 0, 1, 'Thai',     '0-10', 1])));
+        static::assertEquals(1, $tree->classify($keyExample([1, 0, 1, 1, 'Full', '$$$', 0, 1, 'Thai',     '0-10', 1])));
+        static::assertEquals(1, $tree->classify($keyExample([1, 0, 0, 1, 'Full', '$$$', 0, 1, 'Burger',   '0-10', 1])));
 
         // Example leads to testing a key that doesn't exist.
-        static::assertNull($tree->test($keyExample([1, 0, 0, 1, 'Full', '$$$', 0, 1, 'French',   '0-10', 1])));
+        static::assertNull($tree->classify($keyExample([1, 0, 0, 1, 'Full', '$$$', 0, 1, 'French',   '0-10', 1])));
     }
 }

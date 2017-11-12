@@ -4,8 +4,10 @@ namespace MCordingley\DecisionTree\Nodes;
 
 final class Boolean extends Base
 {
-    public function test(array $example)
+    public function classify(array $example)
     {
-        return $this->branches[$example[$this->key] ? 1 : 0] ?? null;
+        $branch = $this->branches[$example[$this->key] ? 1 : 0] ?? null;
+
+        return $branch instanceof Node ? $branch->classify($example) : $branch;
     }
 }

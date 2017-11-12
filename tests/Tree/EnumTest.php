@@ -14,7 +14,7 @@ final class EnumTest extends TestCase
         $node->setBranch('bar', 1);
         $node->setBranch('baz', 2);
 
-        static::assertEquals(1, $node->test(['foo' => 'bar']));
-        static::assertEquals(2, $node->test(['foo' => 'baz']));
+        static::assertEquals(1, $node->classify(['foo' => 'bar']));
+        static::assertEquals(2, $node->classify(['foo' => 'baz']));
     }
 }

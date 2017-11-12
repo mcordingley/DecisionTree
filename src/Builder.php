@@ -45,13 +45,9 @@ final class Builder
         $this->attributes[] = $attribute;
     }
 
-    /**
-     * @param array $examples
-     * @return Tree
-     */
-    public function build(array $examples): Tree
+    public function build(array $examples)
     {
-        return new Tree($this->buildSubTree($examples, $this->attributes, []));
+        return $this->buildSubTree($examples, $this->attributes, []);
     }
 
     /**
