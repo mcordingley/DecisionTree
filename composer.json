@@ -1,0 +1,26 @@
+{
+    "name": "mcordingley/decision-tree",
+    "description": "Decision tree learning library.",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Michael Cordingley",
+            "email": "Michael.Cordingley@gmail.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^6.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "MCordingley\\DecisionTree\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MCordingley\\DecisionTree\\Tests\\": "tests/"
+        }
+    }
+}
