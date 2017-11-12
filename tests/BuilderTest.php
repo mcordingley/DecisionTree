@@ -12,38 +12,6 @@ final class BuilderTest extends TestCase
 {
     public function testSimpleTree()
     {
-        $builder = new Builder('WillWait', new Gain);
-
-        $builder->addAttributes([
-            new Boolean('Alt'),
-            new Boolean('Bar'),
-            new Boolean('Fri'),
-            new Boolean('Hun'),
-            new Enum('Pat'),
-            new Enum('Price'),
-            new Boolean('Rain'),
-            new Boolean('Res'),
-            new Enum('Type'),
-            new Enum('Est'),
-        ]);
-
-        $tree = $builder->build($this->getExamples());
-
-        // Examples that trace expected paths through the tree.
-        static::assertEquals(0, $tree->test($this->keyExample([1, 0, 0, 1, 'None', '$$$', 0, 1, 'French',   '0-10', 1])));
-        static::assertEquals(1, $tree->test($this->keyExample([1, 0, 0, 1, 'Some', '$$$', 0, 1, 'French',   '0-10', 1])));
-        static::assertEquals(0, $tree->test($this->keyExample([1, 0, 0, 0, 'Full', '$$$', 0, 1, 'French',   '0-10', 1])));
-        static::assertEquals(0, $tree->test($this->keyExample([1, 0, 0, 1, 'Full', '$$$', 0, 1, 'Italian',  '0-10', 1])));
-        static::assertEquals(0, $tree->test($this->keyExample([1, 0, 0, 1, 'Full', '$$$', 0, 1, 'Thai',     '0-10', 1])));
-        static::assertEquals(1, $tree->test($this->keyExample([1, 0, 1, 1, 'Full', '$$$', 0, 1, 'Thai',     '0-10', 1])));
-        static::assertEquals(1, $tree->test($this->keyExample([1, 0, 0, 1, 'Full', '$$$', 0, 1, 'Burger',   '0-10', 1])));
-
-        // Example leads to testing a key that doesn't exist.
-        static::assertNull($tree->test($this->keyExample([1, 0, 0, 1, 'Full', '$$$', 0, 1, 'French',   '0-10', 1])));
-    }
-
-    private function getExamples(): array
-    {
         $values = [
             [true, false, false, true, 'Some', '$$$', false, true, 'French', '0-10', true],
             [true, false, false, true, 'Full', '$', false, false, 'Thai', '30-60', false],
@@ -59,13 +27,41 @@ final class BuilderTest extends TestCase
             [true, true, true, true, 'Full', '$', false, false, 'Burger', '30-60', true],
         ];
 
-        return array_map([$this, 'keyExample'], $values);
-    }
+        $keyExample = function(array $example): array {
+            $keys = ['Alt', 'Bar', 'Fri', 'Hun', 'Pat', 'Price', 'Rain', 'Res', 'Type', 'Est', 'WillWait'];
 
-    private function keyExample(array $example): array
-    {
-        $keys = ['Alt', 'Bar', 'Fri', 'Hun', 'Pat', 'Price', 'Rain', 'Res', 'Type', 'Est', 'WillWait'];
+            return array_combine($keys, $example);
+        };
 
-        return array_combine($keys, $example);
+        $examples = array_map($keyExample, $values);
+
+        $builder = new Builder('WillWait', new Gain);
+
+        $builder->addAttributes([
+            new Boolean('Alt'),
+            new Boolean('Bar'),
+            new Boolean('Fri'),
+            new Boolean('Hun'),
+            new Enum('Pat'),
+            new Enum('Price'),
+            new Boolean('Rain'),
+            new Boolean('Res'),
+            new Enum('Type'),
+            new Enum('Est'),
+        ]);
+
+        $tree = $builder->build($examples);
+
+        // Examples that trace expected paths through the tree.
+        static::assertEquals(0, $tree->test($keyExample([1, 0, 0, 1, 'None', '$$$', 0, 1, 'French',   '0-10', 1])));
+        static::assertEquals(1, $tree->test($keyExample([1, 0, 0, 1, 'Some', '$$$', 0, 1, 'French',   '0-10', 1])));
+        static::assertEquals(0, $tree->test($keyExample([1, 0, 0, 0, 'Full', '$$$', 0, 1, 'French',   '0-10', 1])));
+        static::assertEquals(0, $tree->test($keyExample([1, 0, 0, 1, 'Full', '$$$', 0, 1, 'Italian',  '0-10', 1])));
+        static::assertEquals(0, $tree->test($keyExample([1, 0, 0, 1, 'Full', '$$$', 0, 1, 'Thai',     '0-10', 1])));
+        static::assertEquals(1, $tree->test($keyExample([1, 0, 1, 1, 'Full', '$$$', 0, 1, 'Thai',     '0-10', 1])));
+        static::assertEquals(1, $tree->test($keyExample([1, 0, 0, 1, 'Full', '$$$', 0, 1, 'Burger',   '0-10', 1])));
+
+        // Example leads to testing a key that doesn't exist.
+        static::assertNull($tree->test($keyExample([1, 0, 0, 1, 'Full', '$$$', 0, 1, 'French',   '0-10', 1])));
     }
 }
