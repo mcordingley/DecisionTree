@@ -5,14 +5,14 @@ namespace MCordingley\DecisionTree\Tests;
 use MCordingley\DecisionTree\Attributes\Boolean;
 use MCordingley\DecisionTree\Attributes\Enum;
 use MCordingley\DecisionTree\Builder;
-use MCordingley\DecisionTree\InformationGain\EntropyReduction;
+use MCordingley\DecisionTree\ImportanceMeasures\Gain;
 use PHPUnit\Framework\TestCase;
 
 final class EnumTreeTest extends TestCase
 {
     public function testEndToEnd()
     {
-        $builder = new Builder('WillWait', new EntropyReduction);
+        $builder = new Builder('WillWait', new Gain);
 
         $builder->addAttributes([
             new Boolean('Alt'),

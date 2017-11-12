@@ -1,8 +1,8 @@
 <?php
 
-namespace MCordingley\DecisionTree\InformationGain;
+namespace MCordingley\DecisionTree\ImportanceMeasures;
 
-final class EntropyReduction extends Base
+final class Gain extends Base
 {
     public function importance(array $examples, array $partitions, string $outcomeAttribute): float
     {

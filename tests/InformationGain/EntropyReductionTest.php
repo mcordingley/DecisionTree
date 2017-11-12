@@ -2,14 +2,14 @@
 
 namespace MCordingley\DecisionTree\Tests\InformationGain;
 
-use MCordingley\DecisionTree\InformationGain\EntropyReduction;
+use MCordingley\DecisionTree\ImportanceMeasures\Gain;
 use PHPUnit\Framework\TestCase;
 
 final class EntropyReductionTest extends TestCase
 {
     public function testImportance()
     {
-        $gain = new EntropyReduction;
+        $gain = new Gain;
 
         static::assertEquals(
             1,

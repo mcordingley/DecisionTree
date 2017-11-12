@@ -3,7 +3,7 @@
 namespace MCordingley\DecisionTree;
 
 use MCordingley\DecisionTree\Attributes\Attribute;
-use MCordingley\DecisionTree\InformationGain\InformationGain;
+use MCordingley\DecisionTree\ImportanceMeasures\ImportanceMeasure;
 use MCordingley\DecisionTree\Tree\Node;
 
 final class Builder
@@ -11,20 +11,20 @@ final class Builder
     /** @var array */
     private $attributes = [];
 
-    /** @var InformationGain */
-    private $informationGain;
+    /** @var ImportanceMeasure */
+    private $measure;
 
     /** @var string */
     private $outcomeAttribute;
 
     /**
      * @param string $outcomeAttribute
-     * @param InformationGain $informationGain
+     * @param ImportanceMeasure $measure
      */
-    public function __construct(string $outcomeAttribute, InformationGain $informationGain)
+    public function __construct(string $outcomeAttribute, ImportanceMeasure $measure)
     {
         $this->outcomeAttribute = $outcomeAttribute;
-        $this->informationGain = $informationGain;
+        $this->measure = $measure;
     }
 
     /**
@@ -134,7 +134,7 @@ final class Builder
 
         /** @var Attribute $attribute */
         foreach ($attributes as $attribute) {
-            $importance = $this->informationGain->importance($examples, $attribute->partition($examples), $this->outcomeAttribute);
+            $importance = $this->measure->importance($examples, $attribute->partition($examples), $this->outcomeAttribute);
 
             if ($importance > $maxImportance) {
                 $splitAttribute = $attribute;

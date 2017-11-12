@@ -1,8 +1,8 @@
 <?php
 
-namespace MCordingley\DecisionTree\InformationGain;
+namespace MCordingley\DecisionTree\ImportanceMeasures;
 
-abstract class Base implements InformationGain
+abstract class Base implements ImportanceMeasure
 {
     /**
      * @param float[] $proportions e.g. [0.8, 0.1, 0.05, 0.05]

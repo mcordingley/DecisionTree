@@ -1,8 +1,8 @@
 <?php
 
-namespace MCordingley\DecisionTree\InformationGain;
+namespace MCordingley\DecisionTree\ImportanceMeasures;
 
-interface InformationGain
+interface ImportanceMeasure
 {
     /**
      * @param array $examples
