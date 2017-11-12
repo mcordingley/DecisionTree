@@ -2,7 +2,7 @@
 
 namespace MCordingley\DecisionTree;
 
-use MCordingley\DecisionTree\Attribute\Attribute;
+use MCordingley\DecisionTree\Attributes\Attribute;
 use MCordingley\DecisionTree\InformationGain\InformationGain;
 use MCordingley\DecisionTree\Tree\Node;
 

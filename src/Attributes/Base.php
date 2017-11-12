@@ -1,6 +1,6 @@
 <?php
 
-namespace MCordingley\DecisionTree\Attribute;
+namespace MCordingley\DecisionTree\Attributes;
 
 abstract class Base implements Attribute
 {

@@ -2,7 +2,7 @@
 
 namespace MCordingley\DecisionTree\Tests\Attribute;
 
-use MCordingley\DecisionTree\Attribute\Enum;
+use MCordingley\DecisionTree\Attributes\Enum;
 use MCordingley\DecisionTree\Tree\Enum as Node;
 use PHPUnit\Framework\TestCase;
 

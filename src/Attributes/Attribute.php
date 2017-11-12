@@ -1,6 +1,6 @@
 <?php
 
-namespace MCordingley\DecisionTree\Attribute;
+namespace MCordingley\DecisionTree\Attributes;
 
 use MCordingley\DecisionTree\Tree\Node;
 
