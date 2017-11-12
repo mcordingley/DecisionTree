@@ -1,6 +1,6 @@
 <?php
 
-namespace MCordingley\DecisionTree\Tree;
+namespace MCordingley\DecisionTree\Nodes;
 
 final class Enum extends Base
 {

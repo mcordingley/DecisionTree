@@ -2,7 +2,7 @@
 
 namespace MCordingley\DecisionTree;
 
-use MCordingley\DecisionTree\Tree\Node;
+use MCordingley\DecisionTree\Nodes\Node;
 
 final class Tree
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace MCordingley\DecisionTree\Tree;
+namespace MCordingley\DecisionTree\Nodes;
 
 abstract class Base implements Node
 {

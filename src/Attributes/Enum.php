@@ -2,8 +2,8 @@
 
 namespace MCordingley\DecisionTree\Attributes;
 
-use MCordingley\DecisionTree\Tree\Enum as EnumNode;
-use MCordingley\DecisionTree\Tree\Node;
+use MCordingley\DecisionTree\Nodes\Enum as EnumNode;
+use MCordingley\DecisionTree\Nodes\Node;
 
 final class Enum extends Base
 {

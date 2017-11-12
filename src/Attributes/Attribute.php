@@ -2,7 +2,7 @@
 
 namespace MCordingley\DecisionTree\Attributes;
 
-use MCordingley\DecisionTree\Tree\Node;
+use MCordingley\DecisionTree\Nodes\Node;
 
 interface Attribute
 {
