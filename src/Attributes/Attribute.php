@@ -7,6 +7,11 @@ use MCordingley\DecisionTree\Nodes\Node;
 interface Attribute
 {
     /**
+     * @return string
+     */
+    public function key(): string;
+
+    /**
      * @return Node
      */
     public function makeNode(): Node;

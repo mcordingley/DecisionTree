@@ -5,7 +5,7 @@ namespace MCordingley\DecisionTree\Attributes;
 abstract class Base implements Attribute
 {
     /** @var string */
-    public $key;
+    private $key;
 
     /**
      * @param string $key
@@ -13,5 +13,10 @@ abstract class Base implements Attribute
     public function __construct(string $key)
     {
         $this->key = $key;
+    }
+
+    public function key(): string
+    {
+        return $this->key;
     }
 }

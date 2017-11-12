@@ -134,7 +134,7 @@ final class Builder
 
         /** @var Attribute $attribute */
         foreach ($attributes as $attribute) {
-            $importance = $this->measure->importance($examples, $attribute->partition($examples), $this->outcomeAttribute);
+            $importance = $this->measure->importance($examples, $attribute->partition($examples), $this->outcomeAttribute, $attribute->key());
 
             if ($importance > $maxImportance) {
                 $splitAttribute = $attribute;

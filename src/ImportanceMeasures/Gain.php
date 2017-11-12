@@ -4,7 +4,7 @@ namespace MCordingley\DecisionTree\ImportanceMeasures;
 
 final class Gain extends Base
 {
-    public function importance(array $examples, array $partitions, string $outcomeAttribute): float
+    public function importance(array $examples, array $partitions, string $outcomeAttribute, string $testedAttribute): float
     {
         $currentEntropy = $this->entropy($this->proportions($examples, $outcomeAttribute));
         $totalExamples = count($examples);
