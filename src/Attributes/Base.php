@@ -5,7 +5,7 @@ namespace MCordingley\DecisionTree\Attributes;
 abstract class Base implements Attribute
 {
     /** @var string */
-    private $key;
+    protected $key;
 
     /**
      * @param string $key
