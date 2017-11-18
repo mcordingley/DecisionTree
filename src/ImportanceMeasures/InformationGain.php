@@ -2,7 +2,7 @@
 
 namespace MCordingley\DecisionTree\ImportanceMeasures;
 
-final class Gain extends Base
+final class InformationGain extends Base
 {
     public function importance(array $examples, array $partitions, string $outcomeAttribute, string $testedAttribute): float
     {

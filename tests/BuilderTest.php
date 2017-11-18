@@ -5,7 +5,7 @@ namespace MCordingley\DecisionTree\Tests;
 use MCordingley\DecisionTree\Attributes\Boolean;
 use MCordingley\DecisionTree\Attributes\Enum;
 use MCordingley\DecisionTree\Builder;
-use MCordingley\DecisionTree\ImportanceMeasures\Gain;
+use MCordingley\DecisionTree\ImportanceMeasures\InformationGain;
 use PHPUnit\Framework\TestCase;
 
 final class BuilderTest extends TestCase
@@ -35,7 +35,7 @@ final class BuilderTest extends TestCase
 
         $examples = array_map($keyExample, $values);
 
-        $builder = new Builder('WillWait', new Gain);
+        $builder = new Builder('WillWait', new InformationGain);
 
         $builder->addAttributes([
             new Boolean('Alt'),

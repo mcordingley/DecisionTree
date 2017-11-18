@@ -12,7 +12,7 @@ final class GainRatio extends Base
      */
     public function __construct(ImportanceMeasure $gain = null)
     {
-        $this->gain = $gain ?: new Gain;
+        $this->gain = $gain ?: new InformationGain;
     }
 
     public function importance(array $examples, array $partitions, string $outcomeAttribute, string $testedAttribute): float
