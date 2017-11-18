@@ -7,18 +7,11 @@ use MCordingley\DecisionTree\Nodes\Node;
 
 final class Boolean extends Base
 {
-    /**
-     * @return Node
-     */
     public function makeNode(): Node
     {
         return new BooleanNode($this->key);
     }
 
-    /**
-     * @param array $examples
-     * @return array
-     */
     public function partition(array $examples): array
     {
         $groups = [];
