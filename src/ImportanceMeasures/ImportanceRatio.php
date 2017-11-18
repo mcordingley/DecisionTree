@@ -2,7 +2,7 @@
 
 namespace MCordingley\DecisionTree\ImportanceMeasures;
 
-final class GainRatio extends Base
+final class ImportanceRatio extends Base
 {
     /** @var ImportanceMeasure */
     private $gain;
