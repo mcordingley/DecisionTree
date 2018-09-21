@@ -2,6 +2,8 @@
 
 namespace MCordingley\DecisionTree\Nodes;
 
+use MCordingley\DecisionTree\Node;
+
 abstract class Base implements Node
 {
     /** @var array */

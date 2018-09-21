@@ -2,6 +2,8 @@
 
 namespace MCordingley\DecisionTree\Attributes;
 
+use MCordingley\DecisionTree\Attribute;
+
 abstract class Base implements Attribute
 {
     /** @var string */

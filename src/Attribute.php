@@ -1,8 +1,6 @@
 <?php
 
-namespace MCordingley\DecisionTree\Attributes;
-
-use MCordingley\DecisionTree\Nodes\Node;
+namespace MCordingley\DecisionTree;
 
 interface Attribute
 {

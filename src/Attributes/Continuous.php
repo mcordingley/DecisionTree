@@ -2,9 +2,9 @@
 
 namespace MCordingley\DecisionTree\Attributes;
 
-use MCordingley\DecisionTree\ImportanceMeasures\ImportanceMeasure;
+use MCordingley\DecisionTree\ImportanceMeasure;
+use MCordingley\DecisionTree\Node;
 use MCordingley\DecisionTree\Nodes\Continuous as ContinuousNode;
-use MCordingley\DecisionTree\Nodes\Node;
 
 final class Continuous extends Base
 {

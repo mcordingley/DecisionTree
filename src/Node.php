@@ -1,6 +1,6 @@
 <?php
 
-namespace MCordingley\DecisionTree\Nodes;
+namespace MCordingley\DecisionTree;
 
 interface Node
 {

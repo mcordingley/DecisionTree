@@ -2,6 +2,8 @@
 
 namespace MCordingley\DecisionTree\ImportanceMeasures;
 
+use MCordingley\DecisionTree\ImportanceMeasure;
+
 abstract class Base implements ImportanceMeasure
 {
     /**

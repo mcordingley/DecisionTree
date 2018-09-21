@@ -2,10 +2,6 @@
 
 namespace MCordingley\DecisionTree;
 
-use MCordingley\DecisionTree\Attributes\Attribute;
-use MCordingley\DecisionTree\ImportanceMeasures\ImportanceMeasure;
-use MCordingley\DecisionTree\Nodes\Node;
-
 final class Builder
 {
     /** @var array */

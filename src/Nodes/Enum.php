@@ -2,6 +2,8 @@
 
 namespace MCordingley\DecisionTree\Nodes;
 
+use MCordingley\DecisionTree\Node;
+
 final class Enum extends Base
 {
     public function classify(array $example)

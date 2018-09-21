@@ -1,6 +1,6 @@
 <?php
 
-namespace MCordingley\DecisionTree\ImportanceMeasures;
+namespace MCordingley\DecisionTree;
 
 interface ImportanceMeasure
 {

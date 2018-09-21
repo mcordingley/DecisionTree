@@ -2,8 +2,8 @@
 
 namespace MCordingley\DecisionTree\Attributes;
 
+use MCordingley\DecisionTree\Node;
 use MCordingley\DecisionTree\Nodes\Boolean as BooleanNode;
-use MCordingley\DecisionTree\Nodes\Node;
 
 final class Boolean extends Base
 {
