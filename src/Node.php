@@ -9,6 +9,7 @@ interface Node
     /**
      * @param string $key
      * @param mixed $value Either a classification or another node.
+     * @return void
      */
-    public function setBranch(string $key, $value);
+    public function setBranch(string $key, $value): void;
 }

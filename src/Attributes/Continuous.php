@@ -8,10 +8,7 @@ use MCordingley\DecisionTree\Nodes\Continuous as ContinuousNode;
 
 final class Continuous extends Base
 {
-    /** @var ImportanceMeasure */
     private $measure;
-
-    /** @var string */
     private $outcomeAttribute;
 
     public function __construct(string $key, ImportanceMeasure $measure, string $outcomeAttribute)

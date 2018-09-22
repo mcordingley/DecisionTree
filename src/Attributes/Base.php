@@ -6,7 +6,6 @@ use MCordingley\DecisionTree\Attribute;
 
 abstract class Base implements Attribute
 {
-    /** @var string */
     protected $key;
 
     public function __construct(string $key)

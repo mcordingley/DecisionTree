@@ -6,12 +6,8 @@ use MCordingley\DecisionTree\ImportanceMeasure;
 
 final class ImportanceRatio extends Base
 {
-    /** @var ImportanceMeasure */
     private $gain;
 
-    /**
-     * @param ImportanceMeasure|null $gain
-     */
     public function __construct(ImportanceMeasure $gain = null)
     {
         $this->gain = $gain ?: new InformationGain;

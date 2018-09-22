@@ -4,19 +4,10 @@ namespace MCordingley\DecisionTree;
 
 final class Builder
 {
-    /** @var array */
     private $attributes = [];
-
-    /** @var ImportanceMeasure */
     private $measure;
-
-    /** @var string */
     private $outcomeAttribute;
 
-    /**
-     * @param string $outcomeAttribute
-     * @param ImportanceMeasure $measure
-     */
     public function __construct(string $outcomeAttribute, ImportanceMeasure $measure)
     {
         $this->outcomeAttribute = $outcomeAttribute;
@@ -26,17 +17,14 @@ final class Builder
     /**
      * @param Attribute[] $attributes
      */
-    public function addAttributes(array $attributes)
+    public function addAttributes(array $attributes): void
     {
         foreach ($attributes as $attribute) {
             $this->addAttribute($attribute);
         }
     }
 
-    /**
-     * @param Attribute $attribute
-     */
-    public function addAttribute(Attribute $attribute)
+    public function addAttribute(Attribute $attribute): void
     {
         $this->attributes[] = $attribute;
     }
@@ -99,10 +87,6 @@ final class Builder
         return $plurality;
     }
 
-    /**
-     * @param array $examples
-     * @return bool
-     */
     private function hasSameClassifications(array $examples): bool
     {
         $firstClassification = reset($examples)[$this->outcomeAttribute];
