@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 final class EnumTest extends TestCase
 {
-    public function testTest()
+    public function testClassify()
     {
         $node = new Enum('foo');
 
