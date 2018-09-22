@@ -14,16 +14,13 @@ final class Boolean extends Base
 
     public function partition(array $examples): array
     {
-        $groups = [];
+        $groups = [
+            0 => [],
+            1 => [],
+        ];
 
         foreach ($examples as $item) {
-            $keyValue = $item[$this->key] ? 1 : 0;
-
-            if (!isset($groups[$keyValue])) {
-                $groups[$keyValue] = [];
-            }
-
-            $groups[$keyValue][] = $item;
+            $groups[$item[$this->key] ? 1 : 0][] = $item;
         }
 
         return $groups;
