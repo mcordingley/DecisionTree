@@ -31,16 +31,10 @@ final class Builder
 
     public function build(array $examples)
     {
-        return $this->buildSubTree($examples, $this->attributes, []);
+        return $this->buildSubTree($examples, $this->attributes);
     }
 
-    /**
-     * @param array $examples
-     * @param array $attributes
-     * @param array $parentExamples
-     * @return Node|mixed Either a classification or a node.
-     */
-    private function buildSubTree(array $examples, array $attributes, array $parentExamples)
+    private function buildSubTree(array $examples, array $attributes, array $parentExamples = [])
     {
         if (!$examples) {
             return $this->plurality($parentExamples);
@@ -50,7 +44,7 @@ final class Builder
             return $this->plurality($examples);
         }
 
-        $splitAttribute = $this->calculateSplitAttribute($examples, $attributes);
+        $splitAttribute = $this->findBestSplit($examples, $attributes);
         $node = $splitAttribute->makeNode();
 
         array_splice($attributes, array_search($splitAttribute, $attributes), 1);
@@ -62,12 +56,6 @@ final class Builder
         return $node;
     }
 
-    /**
-     * Returns the outcome value with the highest representation.
-     *
-     * @param array $examples
-     * @return mixed
-     */
     private function plurality(array $examples)
     {
         $plurality = null;
@@ -100,14 +88,7 @@ final class Builder
         return true;
     }
 
-    /**
-     * Calculates which attribute gives the best split.
-     *
-     * @param array $examples
-     * @param Attribute[] $attributes
-     * @return Attribute
-     */
-    private function calculateSplitAttribute(array $examples, array $attributes): Attribute
+    private function findBestSplit(array $examples, array $attributes): Attribute
     {
         $splitAttribute = null;
         $maxImportance = -INF;
