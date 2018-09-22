@@ -4,7 +4,7 @@ namespace MCordingley\DecisionTree\ImportanceMeasures;
 
 use MCordingley\DecisionTree\ImportanceMeasure;
 
-final class ImportanceRatio extends Base
+final class InformationGainRatio extends Base
 {
     private $gain;
 
