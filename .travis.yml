@@ -13,7 +13,7 @@ before_script:
 - ./cc-test-reporter before-build
 
 script:
-- vendor/bin/phpunit --coverage-clover coverage.xml
+- ./vendor/phpunit/phpunit/phpunit --coverage-clover coverage.xml
 
 after_script:
 - ./cc-test-reporter after-build --coverage-input-type clover --id 255a169209bc406bd830e5bacbab0db1e5292bd2feeed0d40e35f36328cbfa2a --exit-code $TRAVIS_TEST_RESULT
