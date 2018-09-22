@@ -16,5 +16,6 @@ final class ContinuousTest extends TestCase
 
         static::assertEquals(1, $node->classify(['foo' => '7']));
         static::assertEquals(2, $node->classify(['foo' => '10']));
+        static::assertNull($node->classify(['foo' => '1']));
     }
 }
