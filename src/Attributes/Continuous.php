@@ -26,10 +26,24 @@ final class Continuous extends Base
 
     public function partition(array $examples): array
     {
-        return $this->partitionByKeys($examples, $this->calculateSplitPoints($examples));
+        $splitPoint = $this->calculateSplitPoint($examples);
+        $key = (string) $splitPoint;
+
+        $groups = [
+            '' => [],
+            $key => [],
+        ];
+
+        foreach ($examples as $item) {
+            $keyValue = $item[$this->key] >= $splitPoint ? (string) $splitPoint : '';
+
+            $groups[$keyValue][] = $item;
+        }
+
+        return $groups;
     }
 
-    private function calculateSplitPoints(array $examples): array
+    private function calculateSplitPoint(array $examples): float
     {
         usort($examples, function (array $a, array $b) {
             return $a[$this->outcomeAttribute] <=> $b[$this->outcomeAttribute];
@@ -60,28 +74,6 @@ final class Continuous extends Base
             }
         }
 
-        return [$examples[0][$this->key], $examples[$splitPoint][$this->key]];
-    }
-
-    private function partitionByKeys(array $examples, array $keys): array
-    {
-        sort($keys);
-
-        $partitioned = [];
-
-        foreach ($keys as $key) {
-            $partitioned[$key] = [];
-        }
-
-        foreach ($examples as $example) {
-            foreach ($partitioned as $partitionKey => &$partition) {
-                if ($example[$this->key] >= $partitionKey) {
-                    $partition[] = $example;
-                    continue;
-                }
-            }
-        }
-
-        return $partitioned;
+        return $examples[$splitPoint][$this->key];
     }
 }

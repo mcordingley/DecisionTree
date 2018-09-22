@@ -11,11 +11,10 @@ final class ContinuousTest extends TestCase
     {
         $node = new Continuous('foo');
 
+        $node->setBranch('', 1);
         $node->setBranch('10', 2);
-        $node->setBranch('5.5', 1);
 
         static::assertEquals(1, $node->classify(['foo' => '7']));
         static::assertEquals(2, $node->classify(['foo' => '10']));
-        static::assertNull($node->classify(['foo' => '1']));
     }
 }

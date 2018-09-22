@@ -2,19 +2,16 @@
 
 namespace MCordingley\DecisionTree\Nodes;
 
+use MCordingley\DecisionTree\Node;
+
 final class Continuous extends Base
 {
     public function classify(array $example)
     {
-        $value = $example[$this->key];
+        $keys = array_keys($this->branches);
+        $splitPoint = end($keys);
+        $branch = $this->branches[$example[$this->key] >= $splitPoint ? $splitPoint : ''];
 
-        // Note that the keys for $this->branches are the minimum values for their respective branches.
-        foreach ($this->branches as $branchKey => $branch) {
-            if ($value >= $branchKey) {
-                return $branch;
-            }
-        }
-
-        return null;
+        return $branch instanceof Node ? $branch->classify($example) : $branch;
     }
 }
